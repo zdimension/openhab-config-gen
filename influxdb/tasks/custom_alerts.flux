@@ -32,8 +32,6 @@ check = { _check_id: "{{ check_id() }}",
   _type: "deadman",
   tags: {deadman: "deadman"}}
 
-deadmanDuration = 30s
-
 getData = (r) => dict.get(dict: measures, key: r._source_measurement, default: {
     crit: (r) => false, 
     message: (r) => (if r._level == "crit" then "Alert on field ${ r._field }" else "Field ${ r._field } is OK") + ", no message defined"
